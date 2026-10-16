@@ -38,4 +38,6 @@ jobs:
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/* --title "$GITHUB_REF_NAME" --notes "Install it in rhun: the extensions button in the title bar, then Install from GitHub, then ${GITHUB_REPOSITORY}."
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* --title "$GITHUB_REF_NAME" \
+            --notes "Install it in rhun: the extensions button in the title bar, then Install from GitHub, then ${GITHUB_REPOSITORY}."
