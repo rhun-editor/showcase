@@ -1,0 +1,41 @@
+# A tag vX.Y.Z (matching version in extension.ini) builds the program for each target rhun runs
+# on and publishes what Install from GitHub takes: NAME-TARGET.tar.gz (the extension folder's
+# contents at its top level) and sha256sums.txt. https://rhun.app/extensions/v1/ section 11.
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+      - name: Tests
+        run: go vet ./... && go test ./...
+      - name: The tag is the manifest's version
+        run: test "${GITHUB_REF_NAME#v}" = "$(sed -n 's/^version = //p' extension.ini)"
+      - name: Build and pack
+        run: |
+          name=$(sed -n 's/^name = //p' extension.ini)
+          mkdir -p dist
+          for t in linux-x86_64:linux:amd64 macos-arm64:darwin:arm64 windows-x64:windows:amd64; do
+            target=${t%%:*}; rest=${t#*:}; goos=${rest%%:*}; goarch=${rest#*:}
+            exe=""; [ "$goos" = windows ] && exe=.exe
+            stage=$(mktemp -d)
+            mkdir -p "$stage/bin"
+            CGO_ENABLED=0 GOOS=$goos GOARCH=$goarch go build -trimpath -ldflags=-s -o "$stage/bin/$name-$target$exe" .
+            cp extension.ini README.md LICENSE "$stage/"
+            for d in themes syntax; do [ -d "$d" ] && cp -R "$d" "$stage/"; done
+            tar -czf "dist/$name-$target.tar.gz" -C "$stage" .
+          done
+          (cd dist && sha256sum *.tar.gz > sha256sums.txt)
+          cat dist/sha256sums.txt
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/* --title "$GITHUB_REF_NAME" --notes "Install it in rhun: the extensions button in the title bar, then Install from GitHub, then ${GITHUB_REPOSITORY}."

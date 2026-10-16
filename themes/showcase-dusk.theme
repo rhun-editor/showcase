@@ -1,0 +1,33 @@
+# a theme shipped by an extension: rhun lists it after the user's own themes
+name = Showcase Dusk
+kind = dark
+
+bg             = #1d1b26
+fg             = #e4def2
+accent         = #c792ea
+panel          = #24212f
+border         = #34304a
+selection      = #3d3657
+line_highlight = #262335
+line_number    = #5c5675
+cursor         = #ffcb6b
+error          = #ff6e7f
+warning        = #ffcb6b
+success        = #9ece6a
+
+[syntax]
+keyword        = #c792ea
+type           = #82aaff
+function       = #ffcb6b
+string         = #9ece6a
+number         = #f78c6c
+comment        = #6e6a86
+constant       = #f78c6c
+operator       = #89ddff
+punctuation    = #a9a1c9
+preproc        = #c792ea
+builtin        = #82aaff
+attribute      = #ffcb6b
+tag            = #ff6e7f
+heading        = #c792ea
+escape         = #89ddff

@@ -1,0 +1,26 @@
+# rhun PROJECT --headless --extensions DIR --script tests/basic.txt (tests/run.sh sets it up)
+wait 100
+open proj/notes.md
+wait-ext showcase running
+wait 300
+wait 300
+print-marks
+key ctrl+Home
+cmd showcase.greet
+wait 300
+wait 300
+ext-setting showcase greeting Bonjour
+wait 300
+key ctrl+End
+cmd showcase.greet
+wait 300
+wait 300
+print-doc
+cmd showcase.tour
+wait 300
+wait 300
+print-palette
+key Escape
+ext-page showcase
+wait 300
+print-ext-page

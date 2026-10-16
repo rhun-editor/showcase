@@ -1,0 +1,9 @@
+# a grammar shipped by an extension: files ending in .showcase get it
+name = Showcase Script
+files = *.showcase
+icon = code purple
+comment = #
+string = " \
+keywords = step say pick ask run mark open wrap
+constants = yes no upper lower title reverse
+builtins = greeting case brackets

@@ -1,0 +1,34 @@
+ext=showcase state=running
+2 1 2 15 warning rhun-editor/showcase TODO: buy milk
+3 10 3 26 error rhun-editor/showcase FIXME: off by one
+errors=1 warnings=1
+Hello from the Showcase extension!# Notes
+TODO: buy milk
+x = 1  # FIXME off by one
+Bonjour
+<eod>
+choose=Showcase: pick a demo
+field=
+> Insert a greeting at the cursor (insert)
+  Change the case of the selection (range, replace)
+  Wrap the selection in brackets (range, replace)
+  Count lines and words (text, toast)
+  Mark TODO and FIXME (diagnostics)
+  Clear the marks (diagnostics)
+  Go to the next TODO (select)
+  Ask for a name and greet it (ask, insert)
+  Open the project's README (open)
+  Suggest a command for the terminal (term)
+  Toggle word wrap (cmd)
+  Set this file's tab width (option)
+  Add a command while running (register)
+Showcase 0.1.0 on
+pinned=0
+can: read and change the files you have open, read the files in your project, suggest terminal commands, which you run yourself
+held=1
+setting greeting=Bonjour
+setting case=upper
+setting brackets=()
+setting live_marks=yes
+setting status_words=yes
+setting tab_width=2
