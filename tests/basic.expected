@@ -24,6 +24,7 @@ field=
   Add a command while running (register)
 Showcase 0.1.2 on
 pinned=0
+badge=icon color=#2a9d8f
 can: read and change the files you have open, read the files in your project, suggest terminal commands for you to run
 held=1
 setting greeting=Bonjour
