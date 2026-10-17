@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 	"unicode"
@@ -200,7 +201,7 @@ func (s *showcase) Run(ext *rhunext.Ext, command string, id rhunext.Doc) {
 		}
 		ext.Toast("Showcase: this project has no README")
 	case "terminal":
-		ext.Term(`echo "Showcase ran this: $((6 * 7))"`)
+		ext.Term(termDemo())
 	case "wordwrap":
 		if err := ext.Cmd("toggle_word_wrap"); err == nil {
 			ext.Toast("Showcase: word wrap toggled through rhun's own command")
@@ -475,4 +476,13 @@ func main() {
 	if err := rhunext.Run(&showcase{}); err != nil {
 		os.Exit(1)
 	}
+}
+
+// termDemo is the command the Terminal demo suggests: the arithmetic shows that the shell ran
+// it. rhun's terminal is a POSIX shell on Linux and macOS and PowerShell on Windows.
+func termDemo() string {
+	if runtime.GOOS == "windows" {
+		return `echo "Showcase ran this: $(6 * 7)"`
+	}
+	return `echo "Showcase ran this: $((6 * 7))"`
 }
