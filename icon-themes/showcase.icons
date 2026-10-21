@@ -1,0 +1,33 @@
+# Showcase Icons: a file icon theme shipped by an extension (Select File Icon Theme)
+title = Showcase Icons
+# files without an entry of their own get this theme's file icon
+fallback = default
+
+[icons]
+# PNGs drawn as they are, or (with a color) their alpha as a mask in that theme color
+file = png/file.png muted
+folder = png/folder.png accent
+folder_open = png/folder-open.png accent
+go = png/go.png
+markdown = png/markdown.png
+showcase = png/showcase.png
+tests = png/tests.png
+config = rhun:config orange
+license = rhun:text yellow
+
+[files]
+go.mod = config
+go.sum = config
+LICENSE = license
+
+[extensions]
+md = markdown
+showcase = showcase
+
+[languages]
+Go = go
+
+[folders]
+tests = tests
+[folders_open]
+tests = tests

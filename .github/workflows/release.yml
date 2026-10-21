@@ -31,7 +31,7 @@ jobs:
             CGO_ENABLED=0 GOOS=$goos GOARCH=$goarch go build -trimpath -ldflags=-s -o "$stage/bin/$name-$target$exe" .
             cp extension.ini README.md LICENSE "$stage/"
             icon=$(sed -n 's/^icon = //p' extension.ini); [ -z "$icon" ] || cp "$icon" "$stage/"
-            for d in themes syntax; do [ -d "$d" ] && cp -R "$d" "$stage/"; done
+            for d in themes syntax icon-themes; do [ -d "$d" ] && cp -R "$d" "$stage/"; done
             tar -czf "dist/$name-$target.tar.gz" -C "$stage" .
           done
           (cd dist && sha256sum *.tar.gz > sha256sums.txt)

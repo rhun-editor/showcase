@@ -7,3 +7,17 @@ string = " \
 keywords = step say pick ask run mark open wrap
 constants = yes no upper lower title reverse
 builtins = greeting case brackets
+region = #| |# comment multiline
+# how the editor types it (every language key):
+brackets = () [] {}
+autoclose = ( ) [ ] { } " " #| |#
+autoclose_code = "
+surround = ( ) [ ] { } " "
+indent_open = step ^when {$ (
+indent_close = done } )
+indent_middle = else
+indent_dedent_after = stop
+continue = #>
+doc_block = #|| | |#
+fold = indent
+fold_markers = #region #endregion

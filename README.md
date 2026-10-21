@@ -28,6 +28,18 @@ Without being asked, it also:
 - tells how often a word appears when the pointer rests on it (`hover`);
 - ships a theme, **Showcase Dusk** (Select Theme), and a grammar for `*.showcase` files.
 
+From its manifest alone (protocol 1.1), with no code:
+
+- a status bar item, **$(spark) Showcase**, that starts the tour, and a button for it at the end
+  of the tab strip;
+- editor menu items (Insert Greeting; Wrap Selection in Brackets when text is selected) and an
+  explorer item on the project folder (Open the Project README);
+- a chord, ctrl+k ctrl+g, for Insert Greeting, and icons for its commands;
+- a context key `showcase.mode` for when clauses;
+- language keys for `*.showcase` files: `step` indents the next line, `done` outdents, `else`
+  sits in between, `#>` lines continue, `#|| |#` doc comments, `#region` folds;
+- a file icon theme, **Showcase Icons** (Select File Icon Theme).
+
 ## Settings
 
 On its page (Extensions, then Details): Greeting, Change case to, Brackets, Mark as you type,

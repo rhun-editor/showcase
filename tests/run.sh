@@ -15,7 +15,7 @@ trap 'rm -rf "$work"' EXIT
 dir=$work/exts/rhun-editor/showcase
 mkdir -p "$dir/bin" "$work/proj" "$work/config/rhun"
 CGO_ENABLED=0 go build -o "$dir/bin/showcase-$target" .
-cp -R extension.ini themes syntax "$dir/"
+cp -R extension.ini themes syntax icon-themes "$dir/"
 printf '# Notes\nTODO: buy milk\nx = 1  # FIXME off by one\n' > "$work/proj/notes.md"
 printf '[files]\nrestore_session = false\nrestore_project = false\n[updates]\ncheck = false\n[git]\nenabled = false\n[ui]\nsidebar = false\nagents_panel = false\n[editor]\ncursor_blink = false\n' > "$work/config/rhun/config"
 sed "s|proj/|$work/proj/|" tests/basic.txt > "$work/basic.txt"
