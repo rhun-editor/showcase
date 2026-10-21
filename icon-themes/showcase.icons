@@ -13,7 +13,7 @@ markdown = png/markdown.png
 showcase = png/showcase.png
 tests = png/tests.png
 config = rhun:config orange
-license = rhun:text yellow
+license = rhun:license yellow
 
 [files]
 go.mod = config
