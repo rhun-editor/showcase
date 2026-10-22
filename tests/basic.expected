@@ -22,7 +22,7 @@ field=
   Toggle word wrap (cmd)
   Set this file's tab width (option)
   Add a command while running (register)
-Showcase 0.2.0 on
+Showcase 0.2.1 on
 pinned=0
 can: read and change the files you have open, read the files in your project, suggest terminal commands for you to run
 held=1
